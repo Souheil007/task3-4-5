@@ -1,0 +1,12 @@
+body {
+    background-image: url('a.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;}
+.boxy{
+    margin-left: 620px;
+    margin-top: 150px;
+    background-color:transparent;
+    width: fit-content;
+    font-size: 28px;
+}
