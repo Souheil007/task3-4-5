@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head style="background-color: aqua;">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylee.css">
+    <title>Document</title>
+  </head>
+  <body>
+  <div class="boxy">
+    <h1 style="margin-left:40px;color: red;font-size: 70px;font-weight: 1000;">Interface Corona</h1>
+    <input type="text" />
+    <button style="background-color: blue;">ajouter</button>
+    <p>Enregistrées</p>
+    <ul style="color: aliceblue;"></ul>
+    <p>Vaccinées</p>
+    <ul id="liste2" style="color: aliceblue;"></ul>
+  </div>
+    <script>
+      let button = document.querySelector("button");
+
+      let liste = document.querySelector("ul");
+
+      let input = document.querySelector("input");
+      let l2 = document.getElementById("liste2");
+      let counter = 0;
+      button.addEventListener("click", addTodo);
+      //var ch1=input.value;
+      //console.log(ch1);
+      function addTodo() {
+        if (isInputEmpty()) {
+          alert("Input empty, please type something !");
+          return;
+        }   
+        
+          liste.innerHTML += `<li>
+          cin: 
+          ${input.value} 
+          <button style="background-color: white;" onclick='move(this)'>X</button>
+          </li>`
+          console.log("added");
+          ch="";
+          
+        
+          
+          //button.innerHTML = `ajouter ${input.value} dans la liste`   //matemchi ken bel apostophe heki
+        } 
+        input.value = ""; 
+        function move(e){
+        console.log(e.parentElement);
+        
+        l2.innerHTML += `<li>
+          cin: 
+          ${input.value}
+          <button style="background-color: red;" onclick='deleteTodo(this)'>X</button>
+          </li>`
+          console.log("added");
+          ch="";
+          input.value = "";
+          e.parentElement.remove();
+      }
+      function deleteTodo(e){
+        console.log(e.parentElement);
+        e.parentElement.remove();
+      }
+
+      function isInputEmpty() {
+        if (input.value == "") {
+          return true;
+        }
+        return false;
+      }
+      var ch = "";
+      input.addEventListener("keypress", function(event) {
+      if(event.key!="Enter"){
+      let button = document.querySelector("button");
+      //var button = document.getElementById("buttonId");
+
+      
+      ch+=event.key;
+      button.innerHTML = "ajouter "+ch +" dans la liste";
+      }});
+      input.addEventListener("keypress", function (e) {
+        if (e.key == "Enter") {
+          addTodo();
+          ch="";
+          input.value = "";
+      
+        }
+
+      });
+    </script>
+  </body>
+</html>
